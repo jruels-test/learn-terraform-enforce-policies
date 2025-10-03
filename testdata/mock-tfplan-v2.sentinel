@@ -42,7 +42,7 @@ planned_values = {
 			"type":           "aws_security_group",
 			"values": {
 				"arn":         "arn:aws:ec2:us-west-1:327632770096:security-group/sg-0b0752d83544e584c",
-				"description": "Security group for database servers with DB ports open within VPC",
+				"description": "Security group for web-servers with HTTP ports open within VPC",
 				"egress": [
 					{
 						"cidr_blocks": [
@@ -1604,7 +1604,7 @@ resource_changes = {
 			],
 			"after": {
 				"arn":         "arn:aws:ec2:us-west-1:327632770096:security-group/sg-0b0752d83544e584c",
-				"description": "Security group for DB with HTTP ports open within VPC",
+				"description": "Security group for web-servers with HTTP ports open within VPC",
 				"egress": [
 					{
 						"cidr_blocks": [
