@@ -20,9 +20,9 @@ _modules = {
 			"app_security_group": {
 				"config": {
 					"description": "Security group for web-servers with HTTP ports open within VPC",
-					"name":        "web-sg-project-alpha-dev",
+					"name":        "web-sg-project-alpha-autoapprove",
 					"tags": {
-						"environment": "development",
+						"environment": "autoapprove",
 						"project":     "project-alpha",
 					},
 				},
@@ -45,7 +45,7 @@ _modules = {
 			"ec2_instances": {
 				"config": {
 					"tags": {
-						"environment": "development",
+						"environment": "autoapprove",
 						"project":     "project-alpha",
 					},
 				},
@@ -88,7 +88,7 @@ _modules = {
 						},
 					],
 					"tags": {
-						"environment": "development",
+						"environment": "autoapprove",
 						"project":     "project-alpha",
 					},
 				},
@@ -125,19 +125,29 @@ _modules = {
 				"config": {
 					"description": "Security group for load balancer with HTTP ports open within VPC",
 					"ingress_cidr_blocks": [
-						"0.0.0.0/0",
+						"10.0.0.0/16",
 					],
-					"name": "lb-sg-project-alpha-dev",
+					"ingress_with_cidr_blocks": [
+						{
+							"cidr_blocks": "10.0.0.0/16",
+							"description": "SSH restricted",
+							"from_port":   22,
+							"protocol":    "tcp",
+							"to_port":     22,
+						},
+					],
+					"name": "lb-sg-project-alpha-autoapprove",
 					"tags": {
-						"environment": "development",
+						"environment": "autoapprove",
 						"project":     "project-alpha",
 					},
 				},
 				"references": {
-					"description":         [],
-					"ingress_cidr_blocks": [],
-					"name":                [],
-					"tags":                [],
+					"description":              [],
+					"ingress_cidr_blocks":      [],
+					"ingress_with_cidr_blocks": [],
+					"name": [],
+					"tags": [],
 					"vpc_id": [
 						"module.vpc.vpc_id",
 						"module.vpc",
@@ -160,7 +170,7 @@ _modules = {
 						"10.0.2.0/24",
 					],
 					"tags": {
-						"environment": "development",
+						"environment": "autoapprove",
 						"project":     "project-alpha",
 					},
 				},
@@ -227,6 +237,21 @@ _modules = {
 			},
 		},
 		"resources": {
+			"aws_ebs_volume": {
+				"unencrypted": {
+					"config": {
+						"availability_zone": "us-west-1a",
+						"encrypted":         true,
+						"size":              8,
+					},
+					"provisioners": null,
+					"references": {
+						"availability_zone": [],
+						"encrypted":         [],
+						"size":              [],
+					},
+				},
+			},
 			"random_string": {
 				"lb_id": {
 					"config": {

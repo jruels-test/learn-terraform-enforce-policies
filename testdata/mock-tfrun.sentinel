@@ -1,17 +1,17 @@
-id = "run-twxnMqFKuNH9abVt"
-created_at = "2025-08-01T11:55:28.801Z"
-created_by = "iis-student12"
-message = "Triggered via UI"
-commit_sha = "56e4883640a2846660c10f696f459ec59ddf08ab"
+id = "run-rEeJ1xaASNiq9PBj"
+created_at = "2025-10-02T17:53:22.568Z"
+created_by = "gh-webhooks-policy-as-code-training-aY1JrZaTad"
+message = "fixed"
+commit_sha = "e78028606bb9cd7afe9cd048577bd67a6ff72f20"
 speculative = false
 is_destroy = false
 refresh = true
 refresh_only = false
-replace_addrs = []
+replace_addrs = null
 target_addrs = null
 project = {
-	"id":   "prj-iioGLARhHDbQDvWd",
-	"name": "Default Project",
+	"id":   "prj-87zfFGk3tY6vUquJ",
+	"name": "policy-as-code",
 }
 
 variables = {
@@ -38,11 +38,11 @@ organization = {
 }
 
 workspace = {
-	"auto_apply":     false,
-	"created_at":     "2025-07-30T14:34:20.720Z",
+	"auto_apply":     true,
+	"created_at":     "2025-10-02T12:48:56.486Z",
 	"description":    null,
 	"execution_mode": "default",
-	"id":             "ws-kUUCFRTi9Pt6smkU",
+	"id":             "ws-eKzMifkHvFZevoQM",
 	"name":           "policy-dev-jrs",
 	"tag_bindings":   [],
 	"tags":           [],
@@ -52,5 +52,5 @@ workspace = {
 		"identifier":         "jruels-test/learn-terraform-variables",
 		"ingress_submodules": false,
 	},
-	"working_directory": null,
+	"working_directory": "",
 }

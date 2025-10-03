@@ -44,6 +44,29 @@ providers = {
 }
 
 resources = {
+	"aws_ebs_volume.unencrypted": {
+		"address": "aws_ebs_volume.unencrypted",
+		"config": {
+			"availability_zone": {
+				"constant_value": "us-west-1a",
+			},
+			"encrypted": {
+				"constant_value": true,
+			},
+			"size": {
+				"constant_value": 8,
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "unencrypted",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_ebs_volume",
+	},
 	"data.aws_availability_zones.available": {
 		"address": "data.aws_availability_zones.available",
 		"config": {
@@ -22915,11 +22938,11 @@ module_calls = {
 				],
 			},
 			"name": {
-				"constant_value": "web-sg-project-alpha-dev",
+				"constant_value": "web-sg-project-alpha-autoapprove",
 			},
 			"tags": {
 				"constant_value": {
-					"environment": "development",
+					"environment": "autoapprove",
 					"project":     "project-alpha",
 				},
 			},
@@ -22964,7 +22987,7 @@ module_calls = {
 			},
 			"tags": {
 				"constant_value": {
-					"environment": "development",
+					"environment": "autoapprove",
 					"project":     "project-alpha",
 				},
 			},
@@ -23033,7 +23056,7 @@ module_calls = {
 			},
 			"tags": {
 				"constant_value": {
-					"environment": "development",
+					"environment": "autoapprove",
 					"project":     "project-alpha",
 				},
 			},
@@ -23053,15 +23076,26 @@ module_calls = {
 			},
 			"ingress_cidr_blocks": {
 				"constant_value": [
-					"0.0.0.0/0",
+					"10.0.0.0/16",
+				],
+			},
+			"ingress_with_cidr_blocks": {
+				"constant_value": [
+					{
+						"cidr_blocks": "10.0.0.0/16",
+						"description": "SSH restricted",
+						"from_port":   22,
+						"protocol":    "tcp",
+						"to_port":     22,
+					},
 				],
 			},
 			"name": {
-				"constant_value": "lb-sg-project-alpha-dev",
+				"constant_value": "lb-sg-project-alpha-autoapprove",
 			},
 			"tags": {
 				"constant_value": {
-					"environment": "development",
+					"environment": "autoapprove",
 					"project":     "project-alpha",
 				},
 			},
@@ -23701,7 +23735,7 @@ module_calls = {
 			},
 			"tags": {
 				"constant_value": {
-					"environment": "development",
+					"environment": "autoapprove",
 					"project":     "project-alpha",
 				},
 			},
